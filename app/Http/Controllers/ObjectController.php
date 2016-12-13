@@ -104,8 +104,8 @@ class ObjectController extends Controller
         }
         else {
             return \Response::json(array(
-                'value'         => $object_value->value,
-                'timestamp'     => $object_value->created_at,
+                'value'         => $db_object_value->value,
+                'timestamp'     => $db_object_value->created_at,
                 'status_code'   => 200
             ), 200);
         }
