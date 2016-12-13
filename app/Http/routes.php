@@ -22,5 +22,5 @@ Route::get('/checkDatabase', function () {
 });
 
 Route::group(array('prefix' => 'api/v1'), function() {
-    Route::resource('objects', 'ObjectController', ['only' => ['store', 'show']]);
+    Route::resource('object', 'ObjectController', ['only' => ['store', 'show']]);
 });
