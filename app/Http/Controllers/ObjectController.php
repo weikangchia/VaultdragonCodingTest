@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Input;
 
 use App\Http\Requests;
 
+use App\Object;
+use App\ObjectValue;
+
 use Carbon\Carbon;
 
 class ObjectController extends Controller
@@ -39,7 +42,35 @@ class ObjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->getContent();
+        $json = utf8_encode($data);
+        $data = json_decode($json, true);
+
+        if(count($data) != 1)
+        {
+            return \Response::json(array(
+                'message'       => 'Please submit only one key pair value.',
+                'status_code'   => 400
+            ), 400);
+        }
+
+        $object_keys = array_keys($data);
+        $object_values = array_values($data);
+
+        $object_key = $object_keys[0];
+        $object_value = $object_values[0];
+
+        $db_object = Object::firstOrCreate(['key' => $object_key]);
+        $db_object_value = ObjectValue::firstOrCreate(
+            ['value' => $object_value, 'object_id' => $db_object->id]
+        );
+
+        return \Response::json(array(
+            'key'           => $object_key,
+            'value'         => $object_value,
+            'timestamp'     => strtotime($db_object_value->created_at),
+            'status_code'   => 201
+        ), 201);
     }
 
     /**
