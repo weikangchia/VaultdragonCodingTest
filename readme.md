@@ -47,7 +47,11 @@ Method: `GET`
 
 Endpoint: `/api/v1/object/mykey`
 
-Response: value2
+Response: `{
+  "value": "value2",
+  "timestamp": 1481644216,
+  "status_code": 200
+}`
 
 ------
 
@@ -55,7 +59,11 @@ Method: `GET`
 
 Endpoint: `/api/v1/object/mykey?timestamp=1481630624 [12.03pm]`
 
-Response: `value1`
+Response: `{
+  "value": "value1",
+  "timestamp": 1481629624,
+  "status_code": 200
+}`
 
 
 All timestamps are unix timestamps according UTC timezone.
