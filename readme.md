@@ -39,7 +39,7 @@ Method: `POST`
 
 Endpoint: `/api/v1/object`
 
-Body: JSON: `{mykey : value2}`
+Body: JSON: `{"mykey" : "value2"}`
 
 Time: `3:50pm`
 
