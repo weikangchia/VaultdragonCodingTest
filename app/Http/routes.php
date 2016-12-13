@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/checkDatabase', function () {
+    if(DB::connection()->getDatabaseName()) {
+        echo "connected successfully to database ".DB::connection()->getDatabaseName();
+    }
+});
