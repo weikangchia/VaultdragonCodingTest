@@ -20,3 +20,7 @@ Route::get('/checkDatabase', function () {
         echo "connected successfully to database ".DB::connection()->getDatabaseName();
     }
 });
+
+Route::group(array('prefix' => 'api/v1'), function() {
+    Route::resource('objects', 'ObjectController', ['only' => ['show']]);
+});
