@@ -10,6 +10,8 @@ This is a project to demonstrate a controlled key-value store with a HTTP API wh
 
 For simplicity, we assume only `GET` and `POST` requests.
 
+Server: http://laravel-mysql-example-vaultdragon-coding-test.44fs.preview.openshiftapps.com
+
 ### Example ###
 Method: `POST`  
 
