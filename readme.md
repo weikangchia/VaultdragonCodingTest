@@ -3,6 +3,7 @@
 
 ## Introduction ##
 This is a project to demonstrate a controlled key-value store with a HTTP API which can be query. The API:
+
 1. Accept a key(string) and value(some json blog/string) and store them. If an existing key is sent, the value will be updated.
 2. Accept a key and return the corresponsing latest value.
 3. When given a `key` and a `timestamp`, return whatever the value of the key at the time was.
