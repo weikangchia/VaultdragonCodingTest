@@ -41,6 +41,14 @@ class ObjectController extends Controller
         $object_key = $object_keys[0];
         $object_value = $object_values[0];
 
+        if($object_value == '')
+        {
+            return \Response::json(array(
+                'message'       => 'Your value is empty.',
+                'status_code'   => 400
+            ), 400);
+        }
+
         $db_object = Object::firstOrCreate(['key' => $object_key]);
         $db_object_value = ObjectValue::firstOrCreate(
             ['value' => $object_value, 'object_id' => $db_object->id]
